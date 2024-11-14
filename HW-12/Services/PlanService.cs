@@ -32,7 +32,7 @@ namespace HW_12.Services
         { return repo.Search(search); }
         public List<Plans> GetAll()
         {
-            if (repo.ViewAll()==null) { throw new Exception("data base is epty"); }
+            if (repo.ViewAll()==null) { throw new Exception("data base is empty"); }
             return repo.ViewAll();
         }
         public string Update(int Id, int op, string New)
