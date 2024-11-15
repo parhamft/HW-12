@@ -21,6 +21,8 @@ namespace HW_12.Repositories
         public DbSet<Status> statuses { get; set; }
         public DbSet<Priority> Priorities { get; set; }
         public DbSet<Entities.Plans> plans { get; set; }
+        public DbSet<User> Users { get; set; }
+
 
     }
 }
