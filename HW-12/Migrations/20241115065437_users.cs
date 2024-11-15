@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HW_12.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class users : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,7 +21,8 @@ namespace HW_12.Migrations
                     Description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true),
                     Date = table.Column<DateOnly>(type: "date", nullable: false),
                     PriorityId = table.Column<int>(type: "int", nullable: false),
-                    StatusId = table.Column<int>(type: "int", nullable: false)
+                    StatusId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -53,6 +54,20 @@ namespace HW_12.Migrations
                 {
                     table.PrimaryKey("PK_statuses", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
         }
 
         /// <inheritdoc />
@@ -66,6 +81,9 @@ namespace HW_12.Migrations
 
             migrationBuilder.DropTable(
                 name: "statuses");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

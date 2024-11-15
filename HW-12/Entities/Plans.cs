@@ -18,14 +18,16 @@ namespace HW_12.Entities
         public DateOnly Date { get; set; }
         public int PriorityId { get; set; }
         public int StatusId { get; set; }
+        public  int UserId{ get; set; }
 
-        public Plans(string title, string description, DateOnly date, int PriorityId, int StatusId)
+        public Plans(string title, string description, DateOnly date, int PriorityId, int StatusId,int UserId)
         {
             Title = title;
             Description = description;
             Date = date;
             this.PriorityId = PriorityId;
             this.StatusId = StatusId;
+            this.UserId= UserId;
         }
         public Plans()
         {

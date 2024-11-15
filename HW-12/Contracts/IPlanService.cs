@@ -10,11 +10,11 @@ namespace HW_12.Contracts
 {
     public interface IPlanService
     {
-        public string NewPlan(string title, string description, DateOnly date, int priorityid, int statusid);
-        public string Delete(int planid);
-        public string ChangeStatus(int planid, int statusid);
-        public List<Plans> Search(string search);
-        public List<Plans> GetAll();
-        public string Update(int Id, int op, string New);
+        public string NewPlan(string title, string description, DateOnly date, int priorityid, int statusid, int UserId);
+        public string Delete(int planid, int userid);
+        public string ChangeStatus(int planid, int statusid, int userid);
+        public List<Plans> Search(string search, int userid);
+        public List<Plans> GetAll(int userid);
+        public string Update(int Id, int op, string New, int userid);
     }
 }
